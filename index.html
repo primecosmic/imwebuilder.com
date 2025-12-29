@@ -1,643 +1,1063 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>HIMANSHU | ARCHITECT OF THE MATRIX</title>
-    
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="index.css">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        cyber: {
-                            black: '#020202',
-                            dark: '#050505',
-                            gray: '#0f0f13',
-                            cyan: '#00f3ff',
-                            purple: '#bc13fe',
-                            green: '#0aff00',
-                            red: '#ff003c'
-                        }
-                    },
-                    fontFamily: {
-                        display: ['Orbitron', 'sans-serif'],
-                        sans: ['Rajdhani', 'sans-serif'],
-                        mono: ['"Share Tech Mono"', 'monospace'],
-                        cyber: ['Orbitron', 'sans-serif'],
-                        tech: ['"Share Tech Mono"', 'monospace']
-                    },
-                    animation: {
-                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'scan': 'scan 4s linear infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-                        
-                        // HYPER ANIMATIONS PROTOCOLS
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'glitch-fast': 'glitch 0.5s linear infinite alternate',
-                        'neon-flicker': 'neonFlicker 3s linear infinite',
-                        'slide-in-left': 'slideInLeft 1s ease-out forwards',
-                        'border-wave': 'borderWave 5s linear infinite', 
-                        'shadow-glow': 'shadowGlow 2s ease-in-out infinite alternate', 
-                        'spinner-slow': 'spin 5s linear infinite', 
-                        'data-stream': 'dataStream 1.2s linear infinite', 
-                    },
-                    keyframes: {
-                        glitch: {
-                            '0%, 100%': { transform: 'translate(0)' },
-                            '20%, 60%': { transform: 'translate(-2px, -2px)' },
-                            '40%, 80%': { transform: 'translate(2px, 2px)' },
-                        },
-                        neonFlicker: {
-                            '0%, 19%, 21%, 23%, 25%, 54%, 56%, 100%': { textShadow: '0 0 0.5rem #00f3ff' },
-                            '20%, 24%, 55%': { textShadow: 'none' }
-                        },
-                        scan: {
-                            '0%': { backgroundPosition: '0 0' },
-                            '100%': { backgroundPosition: '0 100%' }
-                        },
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        slideInLeft: {
-                            '0%': { opacity: '0', transform: 'translateX(-100px)' },
-                            '100%': { opacity: '1', transform: 'translateX(0)' }
-                        },
-                        borderWave: {
-                            '0%': { transform: 'translateX(-100%)' },
-                            '100%': { transform: 'translateX(100%)' }
-                        },
-                        shadowGlow: {
-                            '0%': { boxShadow: '0 0 5px rgba(188, 19, 254, 0.5)' },
-                            '100%': { boxShadow: '0 0 20px rgba(0, 243, 255, 0.8)' }
-                        },
-                        dataStream: {
-                            '0%': { backgroundPosition: '0 0' },
-                            '100%': { backgroundPosition: '100% 100%' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <meta name="description" content="Himanshu.Dev: Full Stack Architect specializing in scalable SaaS MVPs, AI systems, and custom web applications. Pure Sigma mindset coding philosophy.">
-    <meta name="keywords" content="React, Next.js, Node.js, AWS, Kubernetes, AI, Web3, Full Stack, Freelancer, Himanshu Dev, Microservices, Fintech, DeFi, Metaverse, High-Performance, Dynamic">
-    <meta name="author" content="Himanshu">
-    <meta property="og:title" content="HIMANSHU | ARCHITECT OF THE MATRIX">
-    <meta property="og:description" content="Full Stack Architect // Digital Visionary // Building scalable digital realities.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://himanshu.dev">
-    <meta property="og:image" content="https://himanshu.dev/og-image.jpg">
-    <link rel="canonical" href="https://himanshu.dev">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIMANSHU | Global Enterprise Architect</title>
+    <meta name="description" content="Award-winning web & app development services. Engineering scalable digital solutions for startups and Fortune 500 enterprises.">
+    <meta name="theme-color" content="#4f46e5">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#bc13fe">
     
-    <meta name="format-detection" content="telephone=no">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="HIMANSHU.DEV">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="generator" content="React/TailwindCSS/Babel">
-    <meta name="application-name" content="The Matrix">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; default-src 'self' https:; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdn.tailwindcss.com; img-src 'self' https: data:; connect-src 'self' https:;">
-    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
-    <meta http-equiv="X-DNS-Prefetch-Control" content="on">
-    <link rel="dns-prefetch" href="https://unpkg.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://images.unsplash.com">
-    <meta name="google-site-verification" content="XYZ-1234567890" />
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="msapplication-config" content="/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@HimanshuDev">
-    <meta name="twitter:creator" content="@HimanshuDev">
-    <meta name="twitter:title" content="HIMANSHU | ARCHITECT OF THE MATRIX">
-    <meta name="twitter:description" content="Full Stack Architect // Digital Visionary">
-    <meta name="twitter:image" content="https://himanshu.dev/twitter-image.jpg">
-    </head>
-<body>
-    <div id="root"></div>
+    <!-- RAZORPAY SDK -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
-    <div class="matrix-layer-1 hidden md:block w-full h-screen absolute top-0 left-0 pointer-events-none opacity-5 z-0">
-        <p class="matrix-padding-log text-xs text-gray-700">// --------------------------------------------------------- // ARCHITECTURAL PADDING LOG STARTS // --------------------------------------------------------- //</p>
-        <div class="container mx-auto h-full border-x border-gray-900/50">
-            <div class="h-full grid grid-cols-12 gap-4">
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1 border-r border-gray-900/30"></div>
-                <div class="col-span-1"></div>
+    <style>
+        /* =========================================
+           1. CORE DESIGN SYSTEM & VARIABLES
+           ========================================= */
+        :root {
+            /* 🎨 PALETTE: Clean, Professional, Trustworthy */
+            --bg-body: #f8fafc;       /* Slate 50 - Premium Grey Background */
+            --bg-card: #ffffff;       /* Pure White Cards */
+            --bg-glass: rgba(255, 255, 255, 0.95);
+            
+            /* Typography Colors */
+            --text-primary: #0f172a;  /* Slate 900 - Sharp Black */
+            --text-secondary: #475569;/* Slate 600 - Readable Grey */
+            --text-muted: #94a3b8;    /* Slate 400 - Subtle */
+            
+            /* Brand Accents */
+            --primary: #4f46e5;       /* Indigo 600 - Trust Blue */
+            --primary-dark: #4338ca;  /* Indigo 700 */
+            --primary-soft: #e0e7ff;  /* Indigo 100 */
+            --accent: #8b5cf6;        /* Violet 500 */
+            --gradient-main: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            
+            /* Status Indicators */
+            --success: #10b981;       /* Emerald */
+            --success-bg: #ecfdf5;
+            --warning: #f59e0b;       /* Amber */
+            --danger: #ef4444;        /* Red */
+            --danger-bg: #fef2f2;
+            
+            /* 📐 LAYOUT */
+            --container-max: 1280px;
+            --header-height: 80px;
+            --section-gap: 120px;
+            
+            /* 🧱 SHAPES */
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            
+            /* 🌑 PREMIUM SHADOWS (The Secret Sauce) */
+            --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.05), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+            --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.05), 0 4px 6px -2px rgba(15, 23, 42, 0.025);
+            --shadow-xl: 0 20px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.01);
+            --shadow-float: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
+            --glow-primary: 0 0 20px rgba(79, 70, 229, 0.3);
+            
+            /* 🌊 PHYSICS & ANIMATION */
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --trans-fast: 0.2s var(--ease-smooth);
+            --trans-med: 0.4s var(--ease-smooth);
+            --trans-slow: 0.8s var(--ease-smooth);
+        }
+
+        /* =========================================
+           2. RESET & BASE TYPOGRAPHY
+           ========================================= */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; font-size: 16px; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5 {
+            color: var(--text-primary);
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+        }
+
+        h1 { font-size: clamp(3rem, 5vw, 4.5rem); margin-bottom: 24px; }
+        h2 { font-size: clamp(2.25rem, 4vw, 3rem); margin-bottom: 16px; }
+        h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        h4 { font-size: 1.25rem; margin-bottom: 8px; }
+        
+        p { color: var(--text-secondary); margin-bottom: 24px; font-size: 1.125rem; max-width: 65ch; }
+        
+        a { text-decoration: none; color: inherit; transition: var(--trans-fast); }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* =========================================
+           3. ANIMATION KEYFRAMES
+           ========================================= */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(79, 70, 229, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+        }
+        @keyframes gradient-x {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Utility Classes for JS Observer */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-out);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stagger-parent .stagger-child {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s var(--ease-out);
+        }
+        .stagger-parent.active .stagger-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Manual Stagger Delays */
+        .stagger-parent.active .stagger-child:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-parent.active .stagger-child:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-parent.active .stagger-child:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-parent.active .stagger-child:nth-child(4) { transition-delay: 0.4s; }
+        .stagger-parent.active .stagger-child:nth-child(5) { transition-delay: 0.5s; }
+        .stagger-parent.active .stagger-child:nth-child(6) { transition-delay: 0.6s; }
+
+        /* =========================================
+           4. COMPONENTS
+           ========================================= */
+        /* Containers */
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+        .section-padding { padding: var(--section-gap) 0; position: relative; }
+        .text-center { text-align: center; }
+        
+        .grid { display: grid; gap: 32px; }
+        .grid-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .grid-4 { grid-template-columns: repeat(4, 1fr); }
+        
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+        .flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s var(--ease-spring);
+            border: none;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.02em;
+        }
+        
+        .btn-primary {
+            background: var(--text-primary);
+            color: #fff;
+            box-shadow: var(--shadow-md);
+        }
+        .btn-primary:hover {
+            background: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border-light);
+            color: var(--text-secondary);
+            border-color: #e2e8f0;
+        }
+        .btn-outline:hover {
+            border-color: var(--text-primary);
+            color: var(--text-primary);
+            background: #fff;
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-sm { padding: 10px 24px; font-size: 0.9rem; }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid #f1f5f9;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-soft);
+        }
+        
+        .icon-box {
+            width: 64px; height: 64px;
+            background: var(--primary-soft);
+            color: var(--primary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+            transition: 0.4s var(--ease-spring);
+        }
+        .card:hover .icon-box {
+            background: var(--primary);
+            color: #fff;
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* =========================================
+           5. SECTION STYLES
+           ========================================= */
+        
+        /* Navbar */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
+            background: var(--bg-glass); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            z-index: 1000; transition: transform 0.3s ease;
+        }
+        .nav-content { height: 100%; display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: 1.5rem; font-weight: 900; color: var(--text-primary); letter-spacing: -0.04em; display: flex; align-items: center; gap: 8px; }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text-secondary); position: relative; }
+        .nav-links a::after { content:''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .region-select {
+            padding: 8px 16px; border-radius: 50px; border: 1px solid #e2e8f0;
+            background: #fff; font-weight: 600; font-size: 0.85rem; color: var(--text-primary);
+            cursor: pointer; outline: none; transition: 0.3s; appearance: none;
+            background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+            background-repeat: no-repeat; background-position: right 12px top 50%; background-size: 8px auto; padding-right: 30px;
+        }
+        .region-select:hover { border-color: var(--primary); box-shadow: var(--shadow-sm); }
+
+        /* Hero */
+        .hero {
+            position: relative; padding-top: 180px; padding-bottom: 140px;
+            overflow: hidden; background: radial-gradient(circle at 50% 0%, #e0e7ff 0%, #f8fafc 60%);
+        }
+        .hero-blob {
+            position: absolute; width: 800px; height: 800px;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(139, 92, 246, 0.08));
+            border-radius: 50%; filter: blur(100px); z-index: 0;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+        .blob-1 { top: -400px; right: -200px; }
+        .blob-2 { bottom: -300px; left: -200px; animation-delay: -5s; background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(79, 70, 229, 0.05)); }
+        
+        .hero-badge {
+            display: inline-flex; align-items: center; padding: 8px 20px;
+            background: #fff; border-radius: 100px; font-size: 0.875rem; font-weight: 600;
+            color: var(--primary); margin-bottom: 32px; box-shadow: var(--shadow-sm);
+            border: 1px solid #f1f5f9;
+        }
+        .status-dot { width: 8px; height: 8px; background: var(--success); border-radius: 50%; margin-right: 8px; animation: pulse-glow 2s infinite; }
+
+        /* Pricing Section - Highly Polished */
+        .pricing-filters { display: flex; justify-content: center; gap: 12px; margin-bottom: 60px; flex-wrap: wrap; }
+        .p-btn {
+            padding: 12px 28px; border-radius: 50px; background: #fff;
+            border: 1px solid #e2e8f0; color: var(--text-secondary); font-weight: 600;
+            cursor: pointer; transition: 0.3s;
+        }
+        .p-btn.active, .p-btn:hover { background: var(--text-primary); color: #fff; border-color: var(--text-primary); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+
+        .price-card {
+            background: #fff; border-radius: var(--radius-lg); padding: 40px;
+            border: 1px solid #f1f5f9; box-shadow: var(--shadow-sm);
+            display: flex; flex-direction: column; position: relative;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            min-height: 650px; /* Ensure uniform height */
+        }
+        .price-card:hover { transform: translateY(-12px) scale(1.01); box-shadow: var(--shadow-float); z-index: 5; }
+        .price-card.premium { border: 2px solid var(--primary); background: linear-gradient(to bottom, #fff 0%, #f8fafc 100%); }
+        
+        .badge-container { position: absolute; top: -14px; left: 0; right: 0; display: flex; justify-content: center; gap: 8px; }
+        .badge {
+            padding: 6px 14px; border-radius: 20px; font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; color: #fff; box-shadow: var(--shadow-md); letter-spacing: 0.5px;
+        }
+        .badge.popular { background: var(--accent); }
+        .badge.value { background: var(--primary); }
+        .badge.limited { background: var(--danger); }
+        .badge.rec { background: var(--text-primary); }
+
+        .price-header h3 { font-size: 1.5rem; margin-bottom: 8px; }
+        .price-amount { font-size: 3rem; font-weight: 800; color: var(--text-primary); margin: 24px 0 8px; letter-spacing: -1px; }
+        .price-amount span { font-size: 1rem; font-weight: 500; color: var(--text-secondary); vertical-align: middle; }
+        .old-price { text-decoration: line-through; color: var(--text-muted); font-size: 1.2rem; margin-right: 12px; font-weight: 500; }
+        
+        .save-tag {
+            display: inline-block; background: var(--success-bg); color: var(--success);
+            font-weight: 700; font-size: 0.8rem; padding: 4px 10px; border-radius: 6px;
+            margin-bottom: 32px;
+        }
+
+        .feature-list { margin: 0 0 32px 0; border-top: 1px dashed #e2e8f0; padding-top: 32px; flex-grow: 1; }
+        .feature-list li { margin-bottom: 16px; display: flex; align-items: flex-start; gap: 12px; color: var(--text-secondary); font-size: 0.95rem; }
+        .feature-list li::before { content: '✓'; color: var(--primary); font-weight: 800; }
+
+        /* Custom Deal Section */
+        .custom-deal-box {
+            margin-top: 80px; background: #fff; padding: 60px; border-radius: var(--radius-lg);
+            text-align: center; border: 1px dashed #cbd5e1; box-shadow: var(--shadow-sm);
+            position: relative; overflow: hidden; transition: 0.3s;
+        }
+        .custom-deal-box:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); }
+        .custom-deal-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.05) 0%, transparent 60%);
+            z-index: 0; pointer-events: none;
+        }
+
+        /* Accordion FAQ */
+        .accordion-item { border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 16px; overflow: hidden; background: #fff; transition: 0.3s; }
+        .accordion-item:hover { border-color: var(--primary-soft); box-shadow: var(--shadow-sm); }
+        .accordion-header { padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--text-primary); }
+        .accordion-content { max-height: 0; overflow: hidden; transition: 0.4s ease; padding: 0 20px; color: var(--text-secondary); }
+        .accordion-item.active .accordion-content { max-height: 200px; padding-bottom: 20px; }
+        .accordion-item.active .accordion-header { color: var(--primary); }
+
+        /* Payment Modal */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(8px);
+            z-index: 2000; display: none; align-items: center; justify-content: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        
+        .modal-card {
+            background: #fff; width: 95%; max-width: 500px; border-radius: 24px;
+            box-shadow: var(--shadow-float); overflow: hidden;
+            transform: scale(0.95) translateY(20px); transition: 0.4s var(--ease-spring);
+            max-height: 90vh; display: flex; flex-direction: column;
+        }
+        .modal-overlay.active .modal-card { transform: scale(1) translateY(0); }
+        
+        .modal-header { padding: 24px; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; background: #fcfcfc; }
+        .modal-body { padding: 32px; overflow-y: auto; }
+
+        .payment-summary { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 24px; margin-bottom: 24px; }
+        .summary-row { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; color: var(--text-secondary); }
+        .summary-total { border-top: 1px dashed #cbd5e1; margin-top: 16px; padding-top: 16px; font-weight: 700; color: var(--text-primary); font-size: 1.1rem; }
+        
+        .form-group { margin-bottom: 16px; }
+        .form-label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--text-secondary); }
+        .form-input {
+            width: 100%; padding: 14px; border: 1px solid #e2e8f0; border-radius: 10px;
+            font-family: inherit; font-size: 1rem; transition: 0.3s;
+        }
+        .form-input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 4px var(--primary-soft); }
+
+        /* Trust Badges */
+        .trust-strip { display: flex; gap: 16px; justify-content: center; margin-top: 24px; font-size: 0.8rem; color: var(--text-muted); }
+        .trust-item { display: flex; align-items: center; gap: 6px; }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            :root { --container-max: 95%; }
+            h1 { font-size: 3.5rem; }
+        }
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+            h1 { font-size: 2.8rem; }
+            .section-padding { padding: 80px 0; }
+            .nav-links { display: none; }
+            .hero-badge { margin-bottom: 24px; }
+            .payment-summary { padding: 16px; }
+        }
+    </style>
+</head>
+<body onload="initApp()">
+
+    <!-- 1. NAVIGATION -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                HIMANSHU<span>.ARCHITECT</span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <div class="nav-actions flex-center" style="gap: 16px;">
+                <select class="region-select" id="regionSelector" onchange="changeRegion(this.value)">
+                    <option value="IN">🇮🇳 INR (India)</option>
+                    <option value="US">🇺🇸 USD (USA)</option>
+                    <option value="GLOBAL">🌍 USD (Intl)</option>
+                </select>
+                <a href="#pricing" class="btn btn-primary btn-sm">Hire Me</a>
             </div>
         </div>
-        <div class="w-full absolute inset-y-0 opacity-5">
-            <div class="h-px bg-cyber-cyan/10 top-0 absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[5%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[10%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[15%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[20%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[25%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[30%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[35%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[40%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[45%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[50%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[55%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[60%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[65%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[70%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[75%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[80%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[85%] absolute w-full"></div>
-            <div class="h-px bg-cyber-cyan/10 top-[90%] absolute w-full"></div>
-            <div class="h-px bg-cyber-purple/10 top-[95%] absolute w-full"></div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+        <div class="hero-blob blob-1"></div>
+        <div class="hero-blob blob-2"></div>
+        
+        <div class="container text-center">
+            <div class="hero-badge reveal active">
+                <span class="status-dot"></span> Available for New Enterprise Projects
+            </div>
+            
+            <h1 class="reveal active" style="transition-delay: 0.1s;">
+                Architecting Digital <br>
+                <span class="text-gradient">Empires & Scale.</span>
+            </h1>
+            
+            <p class="reveal active" style="transition-delay: 0.2s; margin: 0 auto 48px auto;">
+                I don't just build websites; I engineer scalable, high-performance digital assets. 
+                From enterprise-grade SaaS platforms to high-conversion landing pages, 
+                my code drives business growth.
+            </p>
+            
+            <div class="reveal active" style="transition-delay: 0.3s; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="#pricing" class="btn btn-primary">
+                    View Investment Plans
+                    <svg style="margin-left:8px;" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="#services" class="btn btn-outline">Explore Capabilities</a>
+            </div>
+
+            <!-- Tech Stack Ticker -->
+            <div class="reveal active" style="margin-top: 80px; opacity: 0.7; transition-delay: 0.4s;">
+                <p style="font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 24px; color: var(--text-muted);">Powering Next-Gen Solutions With</p>
+                <div class="flex-center" style="gap: 40px; flex-wrap: wrap; font-weight: 600; color: var(--text-secondary);">
+                    <span>React.js</span>
+                    <span>Node.js</span>
+                    <span>AWS Cloud</span>
+                    <span>Next.js</span>
+                    <span>TypeScript</span>
+                    <span>Python AI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SERVICES SECTION -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: 80px;">
+                <h2>Core Capabilities</h2>
+                <p style="margin: 0 auto;">End-to-end development services tailored for scale.</p>
+            </div>
+            
+            <div class="grid grid-3 stagger-parent" id="services-grid">
+                <!-- Card 1 -->
+                <div class="card stagger-child">
+                    <div class="icon-box">💻</div>
+                    <h3>Web Architecture</h3>
+                    <p>High-performance React/Next.js applications optimized for SEO, speed, and conversion. Built to handle millions of requests.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="card stagger-child">
+                    <div class="icon-box">📱</div>
+                    <h3>App Ecosystems</h3>
+                    <p>Native & Cross-platform mobile solutions. Seamless synchronization between web dashboards and mobile interfaces.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="card stagger-child">
+                    <div class="icon-box">🚀</div>
+                    <h3>SaaS Engineering</h3>
+                    <p>Multi-tenant architecture, subscription billing engines, and enterprise-grade security for your software product.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="card stagger-child">
+                    <div class="icon-box">🎨</div>
+                    <h3>UI/UX Design</h3>
+                    <p>User-centric design that converts. We build intuitive interfaces that look premium and feel frictionless.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="card stagger-child">
+                    <div class="icon-box">⚡</div>
+                    <h3>Performance Opt.</h3>
+                    <p>Speed auditing and optimization. We ensure your digital assets load instantly on any device, anywhere.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="card stagger-child">
+                    <div class="icon-box">☁️</div>
+                    <h3>Cloud Infrastructure</h3>
+                    <p>Scalable AWS/Google Cloud setups. Auto-scaling, load balancing, and secure database management.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROCESS SECTION -->
+    <section id="process" class="section-padding" style="background: #fff;">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="reveal">
+                    <h2>The Blueprint to Success</h2>
+                    <p>A structured, transparent process ensures we hit every milestone on time, every time.</p>
+                    
+                    <div style="margin-top: 48px;">
+                        <div style="position:relative; padding-left: 48px; border-left: 2px solid #e2e8f0; padding-bottom: 48px;">
+                            <div style="position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--primary); border: 4px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px var(--primary-soft);"></div>
+                            <h4>01. Discovery & Strategy</h4>
+                            <p style="font-size: 0.95rem; margin-bottom: 0;">We analyze your business logic, competitors, and goals to create a technical roadmap.</p>
+                        </div>
+                        <div style="position:relative; padding-left: 48px; border-left: 2px solid #e2e8f0; padding-bottom: 48px;">
+                            <div style="position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--primary); border: 4px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px var(--primary-soft);"></div>
+                            <h4>02. Design & Prototype</h4>
+                            <p style="font-size: 0.95rem; margin-bottom: 0;">High-fidelity wireframes and interactive prototypes to visualize the end product before coding.</p>
+                        </div>
+                        <div style="position:relative; padding-left: 48px; border-left: 2px solid #e2e8f0; padding-bottom: 48px;">
+                            <div style="position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--primary); border: 4px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px var(--primary-soft);"></div>
+                            <h4>03. Agile Development</h4>
+                            <p style="font-size: 0.95rem; margin-bottom: 0;">Writing clean, modular code with weekly sprints and updates. You see progress in real-time.</p>
+                        </div>
+                        <div style="position:relative; padding-left: 48px;">
+                            <div style="position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background: var(--primary); border: 4px solid #fff; border-radius: 50%; box-shadow: 0 0 0 2px var(--primary-soft);"></div>
+                            <h4>04. Deployment & Scale</h4>
+                            <p style="font-size: 0.95rem; margin-bottom: 0;">Rigorous testing, server setup on AWS/Cloud, and final launch with post-launch support.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="reveal" style="background: var(--bg-body); border-radius: var(--radius-xl); padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid #f1f5f9;">
+                    <div class="text-center">
+                        <div style="font-size: 5rem; font-weight: 800; color: var(--primary); line-height: 1;">100%</div>
+                        <p style="font-weight: 600; margin-top: 16px;">Project Success Rate</p>
+                        <div style="width: 60px; height: 4px; background: #e2e8f0; margin: 32px auto;"></div>
+                        <div style="font-size: 5rem; font-weight: 800; color: var(--text-primary); line-height: 1;">50+</div>
+                        <p style="font-weight: 600; margin-top: 16px;">Enterprise Clients</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PRICING SECTION -->
+    <section id="pricing" class="section-padding">
+        <div class="container">
+            <div class="text-center reveal" style="margin-bottom: 60px;">
+                <h2>Transparent Investment Plans</h2>
+                <p style="margin: 0 auto;">Select a plan that fits your scale. No hidden fees. <br> Switch region in top right to see local pricing.</p>
+            </div>
+
+            <!-- Filters -->
+            <div class="pricing-filters reveal">
+                <button class="p-btn active" onclick="renderPlans('all')">All Plans</button>
+                <button class="p-btn" onclick="renderPlans('starter')">Starter</button>
+                <button class="p-btn" onclick="renderPlans('business')">Business</button>
+                <button class="p-btn" onclick="renderPlans('enterprise')">Enterprise</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="grid grid-3 stagger-parent" id="plans-container">
+                <!-- Javascript Renders Plans Here -->
+            </div>
+
+            <!-- Custom Deal -->
+            <div class="reveal custom-deal-box">
+                <h3>Need a Custom Solution?</h3>
+                <p style="margin: 16px auto 32px;">For unique requirements that don't fit into a box. Custom deals start from <strong id="custom-min">₹5,000</strong>.</p>
+                <button class="btn btn-outline" onclick="openModal('custom')">Request Custom Quote</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FAQ SECTION -->
+    <section id="faq" class="section-padding" style="background: #fff;">
+        <div class="container">
+            <div class="grid grid-2">
+                <div class="reveal">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Everything you need to know before we start building your vision.</p>
+                    <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Ask Something Else</a>
+                </div>
+                <div class="reveal" id="faq-container">
+                    <!-- JS Injected FAQs -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. CONTACT & FOOTER -->
+    <footer id="contact" style="background: #f8fafc; padding: 80px 0; border-top: 1px solid #e2e8f0;">
+        <div class="container">
+            <div class="grid grid-4">
+                <div>
+                    <div class="logo" style="margin-bottom: 24px;">HIMANSHU<span>.ARCHITECT</span></div>
+                    <p style="font-size: 0.9rem;">Building the digital future, one line of code at a time.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul style="margin-top: 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 2;">
+                        <li>Web Development</li>
+                        <li>App Development</li>
+                        <li>SaaS Engineering</li>
+                        <li>UI/UX Design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul style="margin-top: 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 2;">
+                        <li>About Me</li>
+                        <li>Process</li>
+                        <li>Careers</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul style="margin-top: 16px; color: var(--text-secondary); font-size: 0.9rem; line-height: 2;">
+                        <li><a href="#" onclick="openModal('terms')">Privacy Policy</a></li>
+                        <li><a href="#" onclick="openModal('terms')">Terms of Service</a></li>
+                        <li><a href="#" onclick="openModal('terms')">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="border-top: 1px solid #e2e8f0; margin-top: 60px; padding-top: 30px; text-align: center; font-size: 0.85rem; color: var(--text-muted);">
+                &copy; 2024 Himanshu Enterprise. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- 8. PAYMENT MODAL -->
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h4 id="modalTitle">Project Initialization</h4>
+                <button onclick="closeModal()" style="background:none; border:none; font-size:1.75rem; cursor:pointer; color: var(--text-secondary);">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- STEP 1: SUMMARY -->
+                <div id="step1" class="step-content">
+                    <div class="payment-summary">
+                        <div class="summary-row"><span>Plan Selected</span> <strong id="sum-plan">Loading...</strong></div>
+                        <div class="summary-row"><span>Original Price</span> <span id="sum-price" style="text-decoration: line-through; color: var(--text-muted);"></span></div>
+                        <div class="summary-row"><span>Deal Price</span> <span id="sum-final"></span></div>
+                        <div class="summary-row" id="coupon-row" style="display:none;"><span>Coupon Discount</span> <span id="sum-discount" style="color: var(--success);"></span></div>
+                        <div class="summary-total summary-row">
+                            <span>Advance Payable (20%)</span>
+                            <span id="sum-advance" style="color: var(--primary);"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display: flex; gap: 10px;">
+                        <input type="text" class="form-input" id="couponCode" placeholder="Promo Code (Try FIRST10)" style="text-transform: uppercase;">
+                        <button class="btn btn-outline btn-sm" onclick="applyCoupon()">Apply</button>
+                    </div>
+                    <p id="couponMsg" style="font-size: 0.85rem; margin-top: -10px; margin-bottom: 20px; display: none;"></p>
+
+                    <div style="background: #eff6ff; padding: 12px; border-radius: 8px; font-size: 0.85rem; color: #1e40af; margin-bottom: 24px; border: 1px solid #dbeafe;">
+                        <strong>🛡️ Why 20% Advance?</strong> It secures your slot in my calendar and covers initial server/design setup costs.
+                    </div>
+
+                    <button id="payBtn" class="btn btn-primary" style="width: 100%; margin-bottom: 12px;" onclick="handlePayment()">Pay Securely via Razorpay</button>
+                    <button class="btn btn-outline" style="width: 100%; border: none;" onclick="nextStep(2)">Pay via Manual UPI (QR)</button>
+                    
+                    <div class="trust-strip">
+                        <span class="trust-item">🔒 SSL Secure</span>
+                        <span class="trust-item">💳 Cards/UPI/NetBanking</span>
+                    </div>
+                </div>
+
+                <!-- STEP 2: QR -->
+                <div id="step2" class="step-content" style="display:none; text-align: center;">
+                    <h3>Scan to Pay</h3>
+                    <p>Use any UPI App (GPay, PhonePe, Paytm)</p>
+                    <div style="margin: 24px 0; padding: 12px; border: 1px solid #e2e8f0; border-radius: 16px; display: inline-block; background: #fff;">
+                        <img id="qrImage" src="" alt="QR Code" style="width: 220px; height: 220px;">
+                    </div>
+                    <p style="font-family: monospace; background: #f1f5f9; padding: 8px 16px; border-radius: 8px; display: inline-block; font-weight: 600;">9570557907@slc</p>
+                    <button class="btn btn-primary" style="width: 100%; margin-top: 24px;" onclick="nextStep(3)">I Have Made Payment</button>
+                    <button class="btn btn-outline" style="width: 100%; margin-top: 10px; border: none;" onclick="nextStep(1)">Back</button>
+                </div>
+
+                <!-- STEP 3: DETAILS -->
+                <div id="step3" class="step-content" style="display:none;">
+                    <h4 style="margin-bottom: 24px;">Final Step: Onboarding</h4>
+                    <form onsubmit="submitFinal(event)">
+                        <div class="form-group"><label class="form-label">Full Name</label><input class="form-input" id="c-name" placeholder="John Doe" required></div>
+                        <div class="form-group"><label class="form-label">Business Email</label><input class="form-input" id="c-email" placeholder="john@company.com" type="email" required></div>
+                        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" id="c-phone" placeholder="+91 98765 43210" required></div>
+                        <div class="form-group" id="txnField"><label class="form-label">Transaction ID / UTR</label><input class="form-input" id="c-txn" placeholder="Enter Ref ID" required></div>
+                        <div class="form-group"><label class="form-label">Project Brief</label><textarea class="form-input" id="c-brief" rows="3" placeholder="Describe your requirements..." required></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit & Start Project</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <div id="terminal-log-overlay" class="hidden terminal-log-overlay-class">
-        <p class="log-line log-status-ok">// Module Initialization Log v3.2 // Status: OK //</p>
-        <p class="log-line log-status-ok">> Log 001: Component Hero loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 002: Component About loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 003: Component Services loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 004: Component TechStack loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 005: Component Projects loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 006: Component Testimonials loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 007: Component Pricing loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 008: Component Contact loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 009: Component Chatbot loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 010: Component Modal loaded. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 011: Component App rendered. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 012: Scroll tracker initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (1/400)</p>
-        <p class="log-line log-status-ok">> Log 013: Network latency minimal. (Status: OK)</p>
-        <p class="log-line log-status-ok">> Log 014: Resource allocation complete. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (2/400)</p>
-        <p class="log-line log-status-ok">> Log 015: Waiting for user action. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (3/400)</p>
-        <p class="log-line log-status-ok">> Log 016: System idle. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (4/400)</p>
-        <p class="log-line log-status-ok">> Log 017: User viewing Identity section. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (5/400)</p>
-        <p class="log-line log-status-ok">> Log 018: User viewing Services section. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (6/400)</p>
-        <p class="log-line log-status-ok">> Log 019: User viewing Projects section. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (7/400)</p>
-        <p class="log-line log-status-ok">> Log 020: User viewing Milestones section. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (8/400)</p>
-        <p class="log-line log-status-ok">> Log 021: Pricing matrix accessed. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (9/400)</p>
-        <p class="log-line log-status-ok">> Log 022: Contact form idle. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (10/400)</p>
-        <p class="log-line log-status-ok">> Log 023: Deploying new features. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (11/400)</p>
-        <p class="log-line log-status-ok">> Log 024: Architecture verified. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (12/400)</p>
-        <p class="log-line log-status-ok">> Log 025: All checks passed. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (13/400)</p>
-        <p class="log-line log-status-ok">> Log 026: Ready for scaling. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (14/400)</p>
-        <p class="log-line log-status-ok">> Log 027: Status: Online. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (15/400)</p>
-        <p class="log-line log-status-ok">> Log 028: Component A initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (16/400)</p>
-        <p class="log-line log-status-ok">> Log 029: Component B initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (17/400)</p>
-        <p class="log-line log-status-ok">> Log 030: Component C initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (18/400)</p>
-        <p class="log-line log-status-ok">> Log 031: Component D initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (19/400)</p>
-        <p class="log-line log-status-ok">> Log 032: Component E initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (20/400)</p>
-        <p class="log-line log-status-ok">> Log 033: Component F initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (21/400)</p>
-        <p class="log-line log-status-ok">> Log 034: Component G initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (22/400)</p>
-        <p class="log-line log-status-ok">> Log 035: Component H initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (23/400)</p>
-        <p class="log-line log-status-ok">> Log 036: Component I initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (24/400)</p>
-        <p class="log-line log-status-ok">> Log 037: Component J initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (25/400)</p>
-        <p class="log-line log-status-ok">> Log 038: Component K initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (26/400)</p>
-        <p class="log-line log-status-ok">> Log 039: Component L initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (27/400)</p>
-        <p class="log-line log-status-ok">> Log 040: Component M initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (28/400)</p>
-        <p class="log-line log-status-ok">> Log 041: Component N initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (29/400)</p>
-        <p class="log-line log-status-ok">> Log 042: Component O initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (30/400)</p>
-        <p class="log-line log-status-ok">> Log 043: Component P initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (31/400)</p>
-        <p class="log-line log-status-ok">> Log 044: Component Q initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (32/400)</p>
-        <p class="log-line log-status-ok">> Log 045: Component R initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (33/400)</p>
-        <p class="log-line log-status-ok">> Log 046: Component S initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (34/400)</p>
-        <p class="log-line log-status-ok">> Log 047: Component T initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (35/400)</p>
-        <p class="log-line log-status-ok">> Log 048: Component U initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (36/400)</p>
-        <p class="log-line log-status-ok">> Log 049: Component V initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (37/400)</p>
-        <p class="log-line log-status-ok">> Log 050: Component W initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (38/400)</p>
-        <p class="log-line log-status-ok">> Log 051: Component X initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (39/400)</p>
-        <p class="log-line log-status-ok">> Log 052: Component Y initialized. (Status: OK)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (40/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (41/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (42/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (43/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (44/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (45/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (46/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (47/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (48/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (49/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (50/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (51/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (52/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (53/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (54/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (55/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (56/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (57/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (58/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (59/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (60/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (61/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (62/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (63/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (64/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (65/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (66/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (67/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (68/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (69/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (70/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (71/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (72/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (73/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (74/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (75/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (76/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (77/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (78/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (79/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (80/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (81/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (82/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (83/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (84/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (85/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (86/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (87/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (88/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (89/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (90/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (91/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (92/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (93/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (94/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (95/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (96/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (97/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (98/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (99/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (100/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (101/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (102/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (103/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (104/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (105/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (106/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (107/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (108/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (109/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (110/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (111/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (112/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (113/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (114/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (115/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (116/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (117/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (118/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (119/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (120/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (121/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (122/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (123/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (124/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (125/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (126/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (127/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (128/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (129/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (130/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (131/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (132/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (133/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (134/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (135/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (136/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (137/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (138/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (139/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (140/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (141/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (142/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (143/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (144/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (145/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (146/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (147/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (148/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (149/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (150/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (151/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (152/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (153/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (154/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (155/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (156/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (157/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (158/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (159/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (160/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (161/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (162/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (163/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (164/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (165/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (166/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (167/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (168/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (169/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (170/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (171/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (172/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (173/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (174/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (175/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (176/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (177/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (178/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (179/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (180/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (181/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (182/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (183/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (184/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (185/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (186/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (187/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (188/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (189/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (190/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (191/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (192/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (193/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (194/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (195/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (196/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (197/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (198/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (199/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (200/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (201/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (202/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (203/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (204/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (205/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (206/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (207/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (208/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (209/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (210/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (211/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (212/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (213/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (214/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (215/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (216/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (217/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (218/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (219/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (220/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (221/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (222/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (223/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (224/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (225/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (226/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (227/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (228/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (229/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (230/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (231/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (232/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (233/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (234/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (235/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (236/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (237/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (238/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (239/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (240/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (241/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (242/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (243/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (244/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (245/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (246/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (247/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (248/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (249/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (250/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (251/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (252/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (253/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (254/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (255/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (256/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (257/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (258/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (259/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (260/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (261/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (262/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (263/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (264/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (265/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (266/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (267/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (268/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (269/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (270/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (271/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (272/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (273/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (274/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (275/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (276/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (277/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (278/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (279/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (280/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (281/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (282/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (283/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (284/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (285/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (286/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (287/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (288/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (289/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (290/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (291/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (292/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (293/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (294/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (295/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (296/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (297/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (298/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (299/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (300/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (301/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (302/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (303/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (304/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (305/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (306/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (307/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (308/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (309/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (310/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (311/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (312/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (313/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (314/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (315/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (316/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (317/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (318/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (319/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (320/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (321/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (322/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (323/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (324/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (325/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (326/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (327/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (328/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (329/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (330/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (331/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (332/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (333/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (334/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (335/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (336/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (337/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (338/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (339/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (340/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (341/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (342/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (343/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (344/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (345/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (346/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (347/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (348/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (349/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (350/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (351/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (352/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (353/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (354/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (355/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (356/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (357/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (358/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (359/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (360/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (361/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (362/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (363/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (364/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (365/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (366/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (367/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (368/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (369/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (370/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (371/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (372/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (373/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (374/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (375/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (376/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (377/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (378/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (379/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (380/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (381/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (382/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (383/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (384/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (385/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (386/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (387/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (388/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (389/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (390/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (391/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (392/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (393/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (394/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (395/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (396/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (397/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (398/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (399/400)</p>
-        <p class="log-line log-status-ok">// DEBUG: Running intensive diagnostics on all sub-modules (400/400)</p>
-        <p class="log-line log-status-ok">// MODULES INITIALIZED. STATUS: READY FOR INJECTION.</p>
+
+    <!-- 9. LEGAL MODAL -->
+    <div class="modal-overlay" id="legalModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h4>Terms & Policy</h4>
+                <button onclick="closeLegal()" style="background:none; border:none; font-size:1.5rem;">×</button>
+            </div>
+            <div class="modal-body">
+                <h5>Refund Policy</h5>
+                <p>Advance payments are non-refundable as they cover initial setup costs. However, if the project is cancelled by us, a 100% refund will be issued.</p>
+                <h5>Terms of Service</h5>
+                <p>All intellectual property rights remain with the developer until full payment is made. Post-delivery support is provided for 30 days.</p>
+            </div>
+        </div>
     </div>
-    
-    <script type="text/babel" src="index.js"></script> 
-    
-    </body>
+
+    <!-- LOGIC CORE -->
+    <script>
+        // --- DATA MATRIX (COMPLETE) ---
+        const plans = {
+            IN: [
+                { id: 1, name: 'Starter Deal', price: 3000, orig: 5000, cat: 'starter', tags: ['🔥 Limited', 'Best Value'], feats: ['1 Static Page', 'Mobile Responsive', '2 Days Delivery'] },
+                { id: 2, name: 'Portfolio Pro', price: 8000, orig: 12000, cat: 'starter', tags: ['Creative'], feats: ['3 Pages', 'Gallery', 'Resume DL', 'Social Links'] },
+                { id: 3, name: 'Business Standard', price: 15000, orig: 20000, cat: 'business', tags: ['⭐ Recommended'], feats: ['5 Pages', 'SEO Ready', 'Contact Form', '1 Yr Domain'] },
+                { id: 4, name: 'E-commerce Lite', price: 25000, orig: 35000, cat: 'business', tags: ['Popular'], feats: ['10 Products', 'Payment Gateway', 'Admin Panel', 'Cart Logic'] },
+                { id: 5, name: 'Android App', price: 20000, orig: 30000, cat: 'enterprise', tags: ['Mobile'], feats: ['Native App', 'Play Store Ready', 'Basic UI', 'APK File'] },
+                { id: 6, name: 'App + Web Combo', price: 30000, orig: 45000, cat: 'enterprise', tags: ['🚀 Best Value'], feats: ['Website + App', 'Common Backend', 'Sync Data', 'Admin Dashboard'] },
+                { id: 7, name: 'SaaS MVP', price: 50000, orig: 70000, cat: 'enterprise', tags: ['Startup'], feats: ['React Frontend', 'Node Backend', 'Database', 'Auth System'] },
+                { id: 8, name: 'Enterprise Custom', price: 100000, orig: 150000, cat: 'enterprise', tags: ['Premium'], feats: ['Microservices', 'Dedicated Support', 'SLA', 'High Scale'] }
+            ],
+            US: [
+                { id: 101, name: 'Landing Page', price: 199, orig: 299, cat: 'starter', tags: ['Fast'], feats: ['High Conversion', 'Copywriting', 'Fast Load'] },
+                { id: 102, name: 'Business Site', price: 499, orig: 799, cat: 'business', tags: ['⭐ Recommended'], feats: ['5 Pages', 'CMS', 'SEO', 'Mobile Opt'] },
+                { id: 103, name: 'E-commerce', price: 1499, orig: 1999, cat: 'business', tags: ['Sales'], feats: ['Shopify/Woo', 'Payments', 'Inventory', 'Design'] },
+                { id: 104, name: 'Web App', price: 2999, orig: 4000, cat: 'enterprise', tags: ['SaaS'], feats: ['React/Vue', 'API Integration', 'Auth', 'Dashboard'] },
+                { id: 105, name: 'Full Platform', price: 4999, orig: 7000, cat: 'enterprise', tags: ['Enterprise'], feats: ['Mobile + Web', 'Cloud DB', 'Scalable', 'Support'] }
+            ]
+        };
+        plans.GLOBAL = plans.US; // Fallback
+
+        const faqs = [
+            { q: "What is the typical timeline?", a: "Simple websites take 3-5 days. Custom apps and SaaS platforms can take 2-6 weeks depending on complexity." },
+            { q: "Do you provide hosting?", a: "Yes, select plans include 1 year of free hosting. For enterprise apps, I set up your own AWS/Cloud infrastructure." },
+            { q: "Is the advance refundable?", a: "The 20% advance is non-refundable as it reserves time slots. Full refunds are only issued if I cannot deliver." },
+            { q: "Do I get the source code?", a: "Yes, upon full payment, you receive 100% ownership of the source code and assets." }
+        ];
+
+        // --- STATE ---
+        let currentRegion = 'IN';
+        let selectedPlan = null;
+        let discountVal = 0;
+        let isCustom = false;
+
+        // --- INIT ---
+        function initApp() {
+            // Auto Detect Region
+            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+            if(!tz.includes('Calcutta') && !tz.includes('Asia/Kolkata')) {
+                changeRegion('US');
+            } else {
+                renderPlans('all');
+            }
+            renderFAQ();
+            
+            // Animation Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        if(entry.target.classList.contains('reveal')) entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.reveal, .stagger-parent').forEach(el => observer.observe(el));
+        }
+
+        function changeRegion(val) {
+            currentRegion = val;
+            document.getElementById('regionSelector').value = val;
+            document.getElementById('custom-min').innerText = val === 'IN' ? '₹5,000' : '$100';
+            renderPlans('all');
+        }
+
+        function renderPlans(filter) {
+            const container = document.getElementById('plans-container');
+            container.innerHTML = ''; 
+            
+            const data = plans[currentRegion];
+            const currency = currentRegion === 'IN' ? '₹' : '$';
+
+            data.forEach((plan, index) => {
+                if (filter === 'all' || plan.cat === filter) {
+                    let badges = plan.tags.map(t => {
+                        let cls = 'value';
+                        if(t.includes('Limit')) cls = 'limited';
+                        if(t.includes('Pop') || t.includes('Rec')) cls = 'popular';
+                        if(t.includes('Best')) cls = 'rec';
+                        return `<span class="badge ${cls}">${t}</span>`;
+                    }).join('');
+
+                    let feats = plan.feats.map(f => `<li>${f}</li>`).join('');
+                    let save = Math.round(((plan.orig - plan.price)/plan.orig)*100);
+
+                    const html = `
+                        <div class="price-card stagger-child ${plan.price >= 50000 ? 'premium' : ''}">
+                            <div class="badge-container">${badges}</div>
+                            <span class="save-tag">SAVE ${save}%</span>
+                            <div class="price-header">
+                                <h3>${plan.name}</h3>
+                                <div class="price-amount">
+                                    <span class="old-price">${currency}${plan.orig.toLocaleString()}</span>
+                                    ${currency}${plan.price.toLocaleString()}
+                                </div>
+                            </div>
+                            <ul class="feature-list">${feats}</ul>
+                            <button class="btn ${plan.price >= 50000 ? 'btn-primary' : 'btn-outline'}" style="width:100%" onclick="initPayment(${plan.id})">Select Plan</button>
+                        </div>
+                    `;
+                    container.innerHTML += html;
+                }
+            });
+
+            // Handle Buttons active state
+            const buttons = document.querySelectorAll('.p-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            let matched = false;
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(`'${filter}'`)) {
+                    btn.classList.add('active');
+                    matched = true;
+                }
+            });
+            if(!matched && buttons.length > 0) buttons[0].classList.add('active');
+            
+            // Re-trigger animation
+            setTimeout(() => {
+                document.querySelectorAll('.stagger-child').forEach(el => {
+                    el.style.opacity = '1'; 
+                    el.style.transform = 'translateY(0)';
+                });
+            }, 100);
+        }
+
+        function renderFAQ() {
+            const container = document.getElementById('faq-container');
+            faqs.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'accordion-item';
+                div.innerHTML = `
+                    <div class="accordion-header" onclick="this.parentElement.classList.toggle('active')">
+                        ${item.q} <span>+</span>
+                    </div>
+                    <div class="accordion-content">${item.a}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // --- PAYMENT LOGIC ---
+        function initPayment(id) {
+            isCustom = false;
+            selectedPlan = plans[currentRegion].find(p => p.id === id);
+            discountVal = 0;
+            
+            document.getElementById('modalTitle').innerText = 'Project Initialization';
+            document.getElementById('txnField').style.display = 'block';
+            document.getElementById('couponCode').value = '';
+            document.getElementById('couponMsg').style.display = 'none';
+            
+            updateCalculations();
+            openModal();
+        }
+
+        function updateCalculations() {
+            const currency = currentRegion === 'IN' ? '₹' : '$';
+            const price = selectedPlan.price;
+            const finalPrice = price - discountVal;
+            const advance = Math.round(finalPrice * 0.2);
+
+            document.getElementById('sum-plan').innerText = selectedPlan.name;
+            document.getElementById('sum-price').innerText = currency + selectedPlan.orig.toLocaleString();
+            document.getElementById('sum-final').innerText = currency + price.toLocaleString();
+            
+            if(discountVal > 0) {
+                document.getElementById('coupon-row').style.display = 'flex';
+                document.getElementById('sum-discount').innerText = '-' + currency + discountVal;
+            } else {
+                document.getElementById('coupon-row').style.display = 'none';
+            }
+            
+            document.getElementById('sum-advance').innerText = currency + advance.toLocaleString();
+            document.getElementById('payBtn').innerText = `Pay ${currency}${advance.toLocaleString()} via Razorpay`;
+            
+            // QR Logic
+            if(currentRegion === 'IN') {
+                const upiLink = `upi://pay?pa=9570557907@slc&pn=HimanshuDev&am=${advance}&cu=INR`;
+                document.getElementById('qrImage').src = `https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(upiLink)}`;
+            }
+        }
+
+        function applyCoupon() {
+            const code = document.getElementById('couponCode').value.toUpperCase();
+            const msg = document.getElementById('couponMsg');
+            
+            if(code === 'FIRST10') {
+                discountVal = Math.round(selectedPlan.price * 0.1);
+                msg.innerText = 'Success! 10% Discount Applied.';
+                msg.style.color = 'var(--success)';
+            } else {
+                discountVal = 0;
+                msg.innerText = 'Invalid Coupon Code.';
+                msg.style.color = 'var(--danger)';
+            }
+            msg.style.display = 'block';
+            updateCalculations();
+        }
+
+        // --- NAVIGATION ---
+        function openModal(type) {
+            if(type === 'custom') {
+                isCustom = true;
+                selectedPlan = { name: 'Custom Deal', price: 0, orig: 0 };
+                nextStep(3);
+                document.getElementById('modalTitle').innerText = 'Request Custom Quote';
+                document.getElementById('txnField').style.display = 'none';
+                document.getElementById('paymentModal').classList.add('active');
+            } else if (type === 'terms') {
+                document.getElementById('legalModal').classList.add('active');
+            } else {
+                nextStep(1);
+                document.getElementById('paymentModal').classList.add('active');
+            }
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('paymentModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        function closeLegal() {
+            document.getElementById('legalModal').classList.remove('active');
+        }
+
+        function nextStep(step) {
+            document.querySelectorAll('.step-content').forEach(el => el.style.display = 'none');
+            document.getElementById('step' + step).style.display = 'block';
+        }
+
+        // --- ACTIONS ---
+        function handlePayment() {
+            const btn = document.getElementById('payBtn');
+            const oldText = btn.innerText;
+            btn.innerText = "Processing Securely...";
+            
+            const currency = currentRegion === 'IN' ? 'INR' : 'USD';
+            const amount = Math.round((selectedPlan.price - discountVal) * 0.2 * 100); 
+
+            var options = {
+                "key": "rzp_test_1DP5mmOlF5G5ag", // Test Key
+                "amount": amount,
+                "currency": currency,
+                "name": "Himanshu Enterprise",
+                "description": `Advance for ${selectedPlan.name}`,
+                "image": "https://cdn-icons-png.flaticon.com/512/1006/1006771.png",
+                "handler": function (response){
+                    document.getElementById('c-txn').value = response.razorpay_payment_id;
+                    nextStep(3);
+                },
+                "prefill": { "name": "", "email": "", "contact": "" },
+                "theme": { "color": "#4f46e5" },
+                "modal": { "ondismiss": function(){ btn.innerText = oldText; alert('Transaction Cancelled'); } }
+            };
+            
+            try {
+                var rzp = new Razorpay(options);
+                rzp.open();
+            } catch(e) {
+                alert('Gateway Error. Please use Manual UPI.');
+                btn.innerText = oldText;
+            }
+        }
+
+        function submitFinal(e) {
+            e.preventDefault();
+            const name = document.getElementById('c-name').value;
+            const email = document.getElementById('c-email').value;
+            const phone = document.getElementById('c-phone').value;
+            const brief = document.getElementById('c-brief').value;
+            const txn = isCustom ? 'N/A (Custom Request)' : document.getElementById('c-txn').value;
+            
+            const subject = isCustom ? `Custom Quote Request: ${name}` : `Project Started: ${selectedPlan.name} - ${name}`;
+            const body = `Hi Himanshu,%0D%0A%0D%0AProject: ${selectedPlan.name}%0D%0AName: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0ATransaction ID: ${txn}%0D%0ABrief: ${brief}%0D%0A%0D%0APlease initiate next steps.`;
+            
+            window.location.href = `mailto:Himanshuaio69@gmail.com?subject=${subject}&body=${body}`;
+            setTimeout(() => { location.reload(); }, 2000);
+        }
+    </script>
+</body>
 </html>
